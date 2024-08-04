@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/app/data/constants/color.dart';
 
 import '../../../data/widgets/button_widget.dart';
+import '../../../data/widgets/text_widget.dart';
+import '../../../routes/app_pages.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -13,17 +14,15 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "ANTREAN RSSE",
-          style: GoogleFonts.lato(
-            color: cBlack,
-            fontSize: 36,
-            fontWeight: FontWeight.w900,
-          ),
+        title: const TextWidget(
+          title: "ANTREAN RSSE",
+          color: cBlack,
+          size: 30,
+          weight: FontWeight.bold,
         ),
         centerTitle: true,
       ),
-      body: const Scaffold(
+      body: Scaffold(
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -34,8 +33,9 @@ class HomeView extends GetView<HomeController> {
                 bColor: cBlue,
                 size: 14,
                 rad: 20,
+                press: () => Get.offAndToNamed(Routes.antrean),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
               ButtonWidget(
@@ -44,6 +44,7 @@ class HomeView extends GetView<HomeController> {
                 bColor: cRed,
                 size: 14,
                 rad: 20,
+                press: () => Get.offAndToNamed(Routes.antrean),
               ),
             ],
           ),
