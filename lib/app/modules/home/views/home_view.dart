@@ -36,12 +36,23 @@ class HomeView extends GetView<HomeController> {
                 press: () => Get.offAndToNamed(Routes.antrean),
               ),
               const SizedBox(
-                height: 25,
+                height: 20,
               ),
               ButtonWidget(
                 title: "Ambil Antrean",
                 tColor: cWhite,
                 bColor: cRed,
+                size: 14,
+                rad: 20,
+                press: () => Get.offAndToNamed(Routes.antrean),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              ButtonWidget(
+                title: "Panggil Antrean",
+                tColor: cWhite,
+                bColor: Colors.greenAccent,
                 size: 14,
                 rad: 20,
                 press: () => Get.offAndToNamed(Routes.antrean),

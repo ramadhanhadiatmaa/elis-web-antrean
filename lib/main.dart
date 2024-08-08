@@ -7,7 +7,7 @@ void main() {
   runApp(GetMaterialApp(
     debugShowCheckedModeBanner: false,
     title: "Antrean RSU Santa Elisabeth",
-    initialRoute: Routes.home,
+    initialRoute: Routes.login,
     getPages: AppPages.routes,
     defaultTransition: Transition.noTransition,
   ));
