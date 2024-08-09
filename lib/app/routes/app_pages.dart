@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import '../modules/antrean/bindings/antrean_binding.dart';
 import '../modules/antrean/views/antrean_view.dart';
+import '../modules/call/bindings/call_binding.dart';
+import '../modules/call/views/call_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/login/bindings/login_binding.dart';
@@ -29,6 +31,11 @@ class AppPages {
       name: _Paths.login,
       page: () => const LoginView(),
       binding: LoginBinding(),
+    ),
+    GetPage(
+      name: _Paths.call,
+      page: () => const CallView(),
+      binding: CallBinding(),
     ),
   ];
 }

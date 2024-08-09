@@ -44,7 +44,7 @@ class HomeSection extends StatelessWidget {
             bColor: Colors.greenAccent,
             size: 14,
             rad: 20,
-            press: () => Get.offAndToNamed(Routes.antrean),
+            press: () => Get.offAndToNamed(Routes.call),
           ),
         ],
       ),
