@@ -131,17 +131,23 @@ class LoginSection extends StatelessWidget {
                                 const SizedBox(
                                   height: 10,
                                 ),
-                                ButtonWidgetWidth(
-                                  title: "LOGIN",
-                                  tColor: cWhite,
-                                  bColor: cBlue,
-                                  size: 14,
-                                  rad: 5,
-                                  press: () {
-                                    loginC.loginApi();
-                                  },
-                                  width: MediaQuery.of(context).size.width,
-                                  height: 30,
+                                Obx(
+                                  () => ButtonWidgetWidth(
+                                    title: loginC.isLoading.isFalse
+                                        ? "LOGIN"
+                                        : "LOADING..",
+                                    tColor: cWhite,
+                                    bColor: cBlue,
+                                    size: 14,
+                                    rad: 5,
+                                    press: () async {
+                                      if (loginC.isLoading.isFalse) {
+                                        loginC.loginApi();
+                                      }
+                                    },
+                                    width: MediaQuery.of(context).size.width,
+                                    height: 30,
+                                  ),
                                 ),
                               ],
                             ),

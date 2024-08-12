@@ -34,7 +34,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.call,
-      page: () => const CallView(),
+      page: () => CallView(),
       binding: CallBinding(),
     ),
   ];

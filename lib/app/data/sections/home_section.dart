@@ -22,7 +22,7 @@ class HomeSection extends StatelessWidget {
             bColor: cBlue,
             size: 14,
             rad: 20,
-            press: () => Get.offAndToNamed(Routes.antrean),
+            press: () => Get.toNamed(Routes.antrean),
           ),
           const SizedBox(
             height: 20,
@@ -44,7 +44,7 @@ class HomeSection extends StatelessWidget {
             bColor: Colors.greenAccent,
             size: 14,
             rad: 20,
-            press: () => Get.offAndToNamed(Routes.call),
+            press: () => Get.toNamed(Routes.call),
           ),
         ],
       ),

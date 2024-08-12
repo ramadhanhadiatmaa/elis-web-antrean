@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:myapp/app/data/constants/color.dart';
-import 'package:myapp/app/data/widgets/text_widget.dart';
+import '../../../data/constants/color.dart';
+import '../../../data/widgets/text_widget.dart';
 
 import '../controllers/antrean_controller.dart';
 

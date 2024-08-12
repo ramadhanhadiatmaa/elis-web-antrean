@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "460866960032",
+    "project_id": "elisabeth-95ab7",
+    "storage_bucket": "elisabeth-95ab7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:460866960032:android:b5d7c3bed6c2ef454a67c5",
+        "android_client_info": {
+          "package_name": "com.elisabeth.sambas"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrd-0Lo2cyC2taXaAVQGusrGQgqG62SCQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

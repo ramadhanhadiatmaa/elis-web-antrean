@@ -46,7 +46,7 @@ class ButtonWidget extends StatelessWidget {
 }
 
 class ButtonWidgetWidth extends StatelessWidget {
-  const ButtonWidgetWidth(
+  ButtonWidgetWidth(
       {super.key,
       required this.title,
       required this.tColor,

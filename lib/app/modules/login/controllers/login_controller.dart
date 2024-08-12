@@ -12,6 +12,8 @@ class LoginController extends GetxController {
   final TextEditingController userC = TextEditingController();
   final TextEditingController passC = TextEditingController();
 
+  RxBool isLoading = false.obs;
+
   final box = GetStorage();
 
   var password = "";
@@ -30,6 +32,8 @@ class LoginController extends GetxController {
 
       final response = await http.get(Uri.parse(url), headers: headers);
 
+      isLoading = true.obs;
+
       if (response.statusCode == 200) {
         final result = jsonDecode(response.body);
         password = result["password"].toString();
@@ -39,6 +43,7 @@ class LoginController extends GetxController {
 
           Get.snackbar("Berhasil Login", "Autentifikasi sukses");
           Get.offAndToNamed(Routes.home);
+          isLoading = false.obs;
         } else {
           Get.snackbar("Gagal Masuk", "Password yang dimasukkan salah!!");
         }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:myapp/app/data/constants/color.dart';
+import '../../../data/constants/color.dart';
 
 import '../../../data/sections/home_section.dart';
 import '../../../data/widgets/button_widget.dart';
