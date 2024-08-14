@@ -24,7 +24,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.antrean,
-      page: () => const AntreanView(),
+      page: () => AntreanView(),
       binding: AntreanBinding(),
     ),
     GetPage(

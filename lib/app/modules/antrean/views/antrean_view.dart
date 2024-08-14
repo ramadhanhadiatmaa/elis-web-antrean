@@ -6,7 +6,9 @@ import '../../../data/widgets/text_widget.dart';
 import '../controllers/antrean_controller.dart';
 
 class AntreanView extends GetView<AntreanController> {
-  const AntreanView({Key? key}) : super(key: key);
+  AntreanView({Key? key}) : super(key: key);
+
+  final antreanC = Get.put(AntreanController());
 
   @override
   Widget build(BuildContext context) {
@@ -67,13 +69,13 @@ class AntreanView extends GetView<AntreanController> {
                       10,
                     ),
                   ),
-                  child: const Center(
-                    child: TextWidget(
-                      title: "001",
-                      color: Colors.amber,
-                      size: 160,
-                      weight: FontWeight.bold,
-                    ),
+                  child: Center(
+                    child: Obx(() => TextWidget(
+                          title: antreanC.ant.value,
+                          color: Colors.amber,
+                          size: 160,
+                          weight: FontWeight.bold,
+                        )),
                   ),
                 ),
               ],

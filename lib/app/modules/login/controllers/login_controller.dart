@@ -46,12 +46,20 @@ class LoginController extends GetxController {
           isLoading = false.obs;
         } else {
           Get.snackbar("Gagal Masuk", "Password yang dimasukkan salah!!");
+          refreshPage();
+          isLoading = false.obs;
         }
       } else {
         Get.snackbar("Gagal Masuk", "Username tidak valid!!");
+        refreshPage();
+        isLoading = false.obs;
       }
     } catch (e) {
       Get.snackbar("Error Information", "Gagal login, $e");
     }
+  }
+
+  void refreshPage() {
+    Get.forceAppUpdate();
   }
 }

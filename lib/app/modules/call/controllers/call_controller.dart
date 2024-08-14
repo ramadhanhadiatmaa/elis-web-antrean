@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:audioplayers/audioplayers.dart';
@@ -19,6 +20,8 @@ class CallController extends GetxController {
 
   final play1 = AudioPlayer();
   final play2 = AudioPlayer();
+
+  Timer? debounce;
 
   @override
   void onInit() {
@@ -62,6 +65,7 @@ class CallController extends GetxController {
       final response = await http.put(Uri.parse(url), body: body);
 
       if (response.statusCode == 200) {
+        refreshPage();
         fetchData();
         Get.snackbar("Success Information", "Memanggil antrian selanjutnya");
       } else {
@@ -105,77 +109,83 @@ class CallController extends GetxController {
   }
 
   Future<void> playSound(String value) async {
-    await playA.play(AssetSource('antrian.mp3'));
-    playA.onPlayerComplete.listen((event) async {
-      int? number = int.tryParse(value);
-      if (number! >= 0 && number < 12) {
-        if (audioFiles.containsKey(value)) {
-          await playB.play(AssetSource(audioFiles[value]!));
+    debounce?.cancel();
+    debounce = Timer(const Duration(milliseconds: 300), () async {
+      await playA.play(AssetSource('antrian.mp3'));
+      playA.onPlayerComplete.listen((event) {
+        int? number = int.tryParse(value);
+        if (number != null) {
+          if (number > 0 && number < 12) {
+            if (audioFiles.containsKey(value)) {
+              playB.play(AssetSource(audioFiles[value]!));
+            }
+          } else if (number > 11 && number < 20) {
+            playB.play(AssetSource(audioFiles[value]!));
+            playB.onPlayerComplete.listen((event) {
+              playC.play(AssetSource('belas.mp3'));
+            });
+          } else if (number == 20) {
+            playB.play(AssetSource(audioFiles[value]!));
+            playB.onPlayerComplete.listen((event) {
+              playC.play(AssetSource('puluh.mp3'));
+            });
+          } else if (number == 30) {
+            playB.play(AssetSource(audioFiles[value]!));
+            playB.onPlayerComplete.listen((event) {
+              playC.play(AssetSource('puluh.mp3'));
+            });
+          } else if (number == 40) {
+            playB.play(AssetSource(audioFiles[value]!));
+            playB.onPlayerComplete.listen((event) {
+              playC.play(AssetSource('puluh.mp3'));
+            });
+          } else if (number == 50) {
+            playB.play(AssetSource(audioFiles[value]!));
+            playB.onPlayerComplete.listen((event) {
+              playC.play(AssetSource('puluh.mp3'));
+            });
+          } else if (number == 60) {
+            playB.play(AssetSource(audioFiles[value]!));
+            playB.onPlayerComplete.listen((event) {
+              playC.play(AssetSource('puluh.mp3'));
+            });
+          } else if (number > 20 && number < 30) {
+            playB.play(AssetSource('dua.mp3'));
+            playB.onPlayerComplete.listen((event) {
+              playC.play(AssetSource('puluh.mp3'));
+              playC.onPlayerComplete.listen((event) {
+                playD.play(AssetSource(audioFiles[value]!));
+              });
+            });
+          } else if (number > 30 && number < 40) {
+            playB.play(AssetSource('tiga.mp3'));
+            playB.onPlayerComplete.listen((event) {
+              playC.play(AssetSource('puluh.mp3'));
+              playC.onPlayerComplete.listen((event) {
+                playD.play(AssetSource(audioFiles[value]!));
+              });
+            });
+          } else if (number > 40 && number < 50) {
+            playB.play(AssetSource('empat.mp3'));
+            playB.onPlayerComplete.listen((event) {
+              playC.play(AssetSource('puluh.mp3'));
+              playC.onPlayerComplete.listen((event) {
+                playD.play(AssetSource(audioFiles[value]!));
+              });
+            });
+          } else if (number > 50 && number < 60) {
+            playB.play(AssetSource('lima.mp3'));
+            playB.onPlayerComplete.listen((event) {
+              playC.play(AssetSource('puluh.mp3'));
+              playC.onPlayerComplete.listen((event) {
+                playD.play(AssetSource(audioFiles[value]!));
+              });
+            });
+          }
+        } else {
+          refreshPage();
         }
-      } else if (number > 11 && number < 20) {
-        await playB.play(AssetSource(audioFiles[value]!));
-        playB.onPlayerComplete.listen((event) async {
-          await playC.play(AssetSource('belas.mp3'));
-        });
-      } else if (number == 20) {
-        await playB.play(AssetSource(audioFiles[value]!));
-        playB.onPlayerComplete.listen((event) async {
-          await playC.play(AssetSource('puluh.mp3'));
-        });
-      } else if (number == 30) {
-        await playB.play(AssetSource(audioFiles[value]!));
-        playB.onPlayerComplete.listen((event) async {
-          await playC.play(AssetSource('puluh.mp3'));
-        });
-      } else if (number == 40) {
-        await playB.play(AssetSource(audioFiles[value]!));
-        playB.onPlayerComplete.listen((event) async {
-          await playC.play(AssetSource('puluh.mp3'));
-        });
-      } else if (number == 50) {
-        await playB.play(AssetSource(audioFiles[value]!));
-        playB.onPlayerComplete.listen((event) async {
-          await playC.play(AssetSource('puluh.mp3'));
-        });
-      } else if (number == 60) {
-        await playB.play(AssetSource(audioFiles[value]!));
-        playB.onPlayerComplete.listen((event) async {
-          await playC.play(AssetSource('puluh.mp3'));
-        });
-      } else if (number > 20 && number < 30) {
-        await playB.play(AssetSource('dua.mp3'));
-        playB.onPlayerComplete.listen((event) async {
-          await playC.play(AssetSource('puluh.mp3'));
-          playC.onPlayerComplete.listen((event) async {
-            await playD.play(AssetSource(audioFiles[value]!));
-          });
-        });
-      } else if (number > 30 && number < 40) {
-        await playB.play(AssetSource('tiga.mp3'));
-        playB.onPlayerComplete.listen((event) async {
-          await playC.play(AssetSource('puluh.mp3'));
-          playC.onPlayerComplete.listen((event) async {
-            await playD.play(AssetSource(audioFiles[value]!));
-          });
-        });
-      } else if (number > 40 && number < 50) {
-        await playB.play(AssetSource('empat.mp3'));
-        playB.onPlayerComplete.listen((event) async {
-          await playC.play(AssetSource('puluh.mp3'));
-          playC.onPlayerComplete.listen((event) async {
-            await playD.play(AssetSource(audioFiles[value]!));
-          });
-        });
-      } else if (number > 50 && number < 60) {
-        print(value);
-        await playB.play(AssetSource('lima.mp3'));
-        playB.onPlayerComplete.listen((event) async {
-          await playC.play(AssetSource('puluh.mp3'));
-          playC.onPlayerComplete.listen((event) async {
-            await playD.play(AssetSource(audioFiles[value]!));
-          });
-        });
-      } else {}
+      });
     });
   }
 
