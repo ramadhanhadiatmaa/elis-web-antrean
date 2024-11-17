@@ -9,8 +9,8 @@ void main() async {
 
   runApp(GetMaterialApp(
     debugShowCheckedModeBanner: false,
-    title: "Antrean RSU Santa Elisabeth",
-    initialRoute: Routes.login,
+    title: "Elism -  RSU Santa Elisabeth",
+    initialRoute: Routes.dashboard,
     getPages: AppPages.routes,
     defaultTransition: Transition.noTransition,
   ));
