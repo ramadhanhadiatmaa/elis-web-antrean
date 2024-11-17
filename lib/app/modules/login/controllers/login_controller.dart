@@ -1,5 +1,5 @@
 import 'dart:convert';
-
+import 'package:elis_web_antrean/app/data/constants/color.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -16,9 +16,13 @@ class LoginController extends GetxController {
 
   final box = GetStorage();
 
+  var load = "Login".obs;
+
   var password = "";
 
   Future<void> loginApi() async {
+    isLoading.value = true; // Set loading to true
+    load.value = "Loading...";
     try {
       var baseUrl = '${dotenv.env["BASE_URL_AUTH"]}';
       var header = '${dotenv.env["BASE_HEADER"]}';
@@ -32,34 +36,39 @@ class LoginController extends GetxController {
 
       final response = await http.get(Uri.parse(url), headers: headers);
 
-      isLoading = true.obs;
-
       if (response.statusCode == 200) {
         final result = jsonDecode(response.body);
         password = result["password"].toString();
 
         if (pass == password) {
           box.write("data", user);
-
-          Get.snackbar("Berhasil Login", "Autentifikasi sukses");
           Get.offAndToNamed(Routes.home);
-          isLoading = false.obs;
+          load.value = "Success";
         } else {
-          Get.snackbar("Gagal Masuk", "Password yang dimasukkan salah!!");
-          refreshPage();
-          isLoading = false.obs;
+          Get.snackbar(
+            margin: const EdgeInsets.all(20),
+            "Gagal Masuk",
+            "Password yang dimasukkan salah!!",
+            backgroundColor: cRed,
+            colorText: cWhite,
+          );
+          load.value = "Login";
         }
       } else {
-        Get.snackbar("Gagal Masuk", "Username tidak valid!!");
-        refreshPage();
-        isLoading = false.obs;
+        Get.snackbar(
+          margin: const EdgeInsets.all(20),
+          "Gagal Masuk",
+          "Username tidak valid!!",
+          backgroundColor: cRed,
+          colorText: cWhite,
+        );
+        load.value = "Login";
       }
     } catch (e) {
-      Get.snackbar("Error Information", "Gagal login, $e");
+      Get.snackbar("Error Information", "Gagal login");
+      load.value = "Login";
+    } finally {
+      isLoading.value = false; // Ensure loading is set to false after API call
     }
-  }
-
-  void refreshPage() {
-    Get.forceAppUpdate();
   }
 }

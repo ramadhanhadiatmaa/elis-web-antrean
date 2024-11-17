@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:elis_web_antrean/app/data/models/kamar_model.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -10,7 +11,10 @@ import 'package:http/http.dart' as http;
 
 import 'dart:convert';
 
+import '../../../data/services/api_service.dart';
+
 class AntreanController extends GetxController {
+  var kamarlist = <KamarModel>[].obs;
   var ant = "".obs;
   Timer? timer;
 
@@ -36,6 +40,16 @@ class AntreanController extends GetxController {
   void startPolling() {
     timer =
         Timer.periodic(const Duration(seconds: 3), (Timer t) => fetchData());
+  }
+
+  Future<void> fetchKamar() async {
+    try {
+      var data = await ApiService().fetchKamarData();
+
+      kamarlist.addAll(data);
+    } catch (e) {
+      Get.snackbar("Network Error", "$e");
+    } 
   }
 
   Future<void> fetchData() async {

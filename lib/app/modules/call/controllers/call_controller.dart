@@ -2,6 +2,8 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:audioplayers/audioplayers.dart';
+import 'package:elis_web_antrean/app/data/constants/color.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -67,7 +69,12 @@ class CallController extends GetxController {
       if (response.statusCode == 200) {
         refreshPage();
         fetchData();
-        Get.snackbar("Success Information", "Memanggil antrian selanjutnya");
+        Get.snackbar(
+          "Success Information",
+          "Memanggil antrian selanjutnya",
+          colorText: cWhite,
+          backgroundColor: Colors.greenAccent,
+        );
       } else {
         Get.snackbar("${response.statusCode}", "${Error()}");
       }
@@ -190,7 +197,11 @@ class CallController extends GetxController {
   }
 
   void refreshPage() {
-    Get.forceAppUpdate();
+    playA.setReleaseMode(ReleaseMode.stop);
+    playB.setReleaseMode(ReleaseMode.stop);
+    playC.setReleaseMode(ReleaseMode.stop);
+    playD.setReleaseMode(ReleaseMode.stop);
+    Get.appUpdate();
   }
 
   final Map<String, String> audioFiles = {

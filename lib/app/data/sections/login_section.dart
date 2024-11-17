@@ -34,62 +34,64 @@ class LoginSection extends StatelessWidget {
                   width: MediaQuery.of(context).size.width * 0.6,
                   height: MediaQuery.of(context).size.height * 0.7,
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.4),
+                    color: cWhite,
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width * 0.3,
-                        decoration: const BoxDecoration(
-                          color: cBlue,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20),
-                            bottomLeft: Radius.circular(
-                              20,
+                      Expanded(
+                        child: Container(
+                          decoration: const BoxDecoration(
+                            color: cMain,
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              bottomLeft: Radius.circular(
+                                20,
+                              ),
                             ),
                           ),
-                        ),
-                        child: SizedBox(
-                          width: MediaQuery.of(context).size.width,
-                          height: MediaQuery.of(context).size.height,
-                          child: const Center(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                TextWidget(
-                                  title: "ElisM",
-                                  color: cWhite,
-                                  size: 66,
-                                  weight: FontWeight.bold,
-                                ),
-                                TextWidget(
-                                  title: "Elisabeth Hospital Management System",
-                                  color: cWhite,
-                                  size: 14,
-                                  weight: FontWeight.w400,
-                                ),
-                              ],
+                          child: const SizedBox(
+                            child: Center(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  TextWidget(
+                                    title: "ElisM",
+                                    color: cWhite,
+                                    size: 56,
+                                    weight: FontWeight.bold,
+                                    style: FontStyle.italic,
+                                  ),
+                                  TextWidget(
+                                    title:
+                                        "Elisabeth Hospital Management System",
+                                    color: cWhite,
+                                    size: 14,
+                                    weight: FontWeight.w600,
+                                    style: FontStyle.italic,
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
                       ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.3,
+                      Expanded(
                         child: Center(
                           child: SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.18,
+                            width: MediaQuery.of(context).size.width * 0.20,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 const TextWidget(
-                                  title: "Log In",
-                                  color: cBlack,
+                                  title: "Hallo.",
+                                  color: cMain,
                                   size: 20,
                                   weight: FontWeight.w800,
+                                  style: FontStyle.italic,
                                 ),
                                 const TextWidget(
                                   title: "Masuk untuk melanjutkan",
@@ -105,11 +107,16 @@ class LoginSection extends StatelessWidget {
                                   controller: loginC.userC,
                                   keyboardType: TextInputType.name,
                                   decoration: InputDecoration(
+                                    fillColor: cMain.withOpacity(0.2),
+                                    filled: true,
                                     border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(5),
+                                        borderRadius: BorderRadius.circular(10),
+                                        borderSide: BorderSide.none),
+                                    hintText: "Username",
+                                    hintStyle: TextStyle(
+                                      color: cBlack.withOpacity(0.5),
+                                      fontSize: 12,
                                     ),
-                                    labelText: "Username",
-                                    labelStyle: const TextStyle(color: cGrey),
                                   ),
                                 ),
                                 const SizedBox(
@@ -121,11 +128,16 @@ class LoginSection extends StatelessWidget {
                                   keyboardType: TextInputType.text,
                                   obscureText: true,
                                   decoration: InputDecoration(
+                                    fillColor: cMain.withOpacity(0.2),
+                                    filled: true,
                                     border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(5),
+                                        borderRadius: BorderRadius.circular(10),
+                                        borderSide: BorderSide.none),
+                                    hintText: "Password",
+                                    hintStyle: TextStyle(
+                                      color: cBlack.withOpacity(0.5),
+                                      fontSize: 12,
                                     ),
-                                    labelText: "Password",
-                                    labelStyle: const TextStyle(color: cGrey),
                                   ),
                                 ),
                                 const SizedBox(
@@ -133,13 +145,13 @@ class LoginSection extends StatelessWidget {
                                 ),
                                 Obx(
                                   () => ButtonWidgetWidth(
-                                    title: loginC.isLoading.isFalse
-                                        ? "LOGIN"
-                                        : "LOADING..",
+                                    title: loginC.load.value,
                                     tColor: cWhite,
-                                    bColor: cBlue,
+                                    bColor: loginC.isLoading.value
+                                        ? cGrey
+                                        : cMain, // Change color when loading
                                     size: 14,
-                                    rad: 5,
+                                    rad: 10,
                                     press: () async {
                                       if (loginC.isLoading.isFalse) {
                                         loginC.loginApi();

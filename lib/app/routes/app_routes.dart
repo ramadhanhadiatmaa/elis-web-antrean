@@ -6,6 +6,7 @@ abstract class Routes {
   static const antrean = _Paths.antrean;
   static const call = _Paths.call;
   static const login = _Paths.login;
+  static const dashboard = _Paths.dashboard;
 }
 
 abstract class _Paths {
@@ -14,4 +15,5 @@ abstract class _Paths {
   static const antrean = '/antrean';
   static const call = '/call';
   static const login = '/login';
+  static const dashboard = '/dashboard';
 }

@@ -8,12 +8,14 @@ class TextWidget extends StatelessWidget {
     required this.color,
     required this.size,
     required this.weight,
+    this.style,
   });
 
   final String title;
   final Color color;
   final double size;
   final FontWeight weight;
+  final FontStyle? style;
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +25,7 @@ class TextWidget extends StatelessWidget {
         color: color,
         fontSize: size,
         fontWeight: weight,
+        fontStyle: style,
       ),
     );
   }

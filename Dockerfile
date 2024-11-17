@@ -13,8 +13,6 @@ RUN dart pub get
 # Copy the entire project
 COPY . .
 
-COPY .env_prod .env
-
 # Build the Flutter web app
 RUN dart pub get && \
     dart pub global activate webdev 

@@ -1,3 +1,5 @@
+import 'package:elis_web_antrean/app/modules/dashboard/bindings/dashboard_binding.dart';
+import 'package:elis_web_antrean/app/modules/dashboard/views/dashboard_view.dart';
 import 'package:get/get.dart';
 
 import '../modules/antrean/bindings/antrean_binding.dart';
@@ -36,6 +38,11 @@ class AppPages {
       name: _Paths.call,
       page: () => CallView(),
       binding: CallBinding(),
+    ),
+    GetPage(
+      name: _Paths.dashboard,
+      page: () => const DashboardView(),
+      binding: DashboardBinding(),
     ),
   ];
 }
