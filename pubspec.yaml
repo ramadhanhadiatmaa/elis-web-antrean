@@ -37,6 +37,7 @@ dependencies:
   get_storage: ^2.1.1
   google_fonts: ^6.2.1
   http: ^1.2.2
+  intl: ^0.20.0
   web_socket_channel: ^3.0.1
 
 dev_dependencies:
