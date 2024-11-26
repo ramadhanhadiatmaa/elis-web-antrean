@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import '../../../data/constants/color.dart';
 import '../../../data/widgets/text_widget.dart';
@@ -20,7 +18,6 @@ class AntreanView extends GetView<AntreanController> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-          
             height: 60,
             color: cBlue,
             child: const Row(
@@ -87,41 +84,141 @@ class AntreanView extends GetView<AntreanController> {
                   ),
                 ),
               ),
-               Expanded(
+              Expanded(
                 child: Column(
                   children: [
-                    const TextWidget(title: "INFORMASI KAMAR INAP", color: cBlue, size: 22, weight: FontWeight.w900,),
-                    const SizedBox(height: 5,),
+                    const TextWidget(
+                      title: "INFORMASI KAMAR INAP",
+                      color: cBlue,
+                      size: 22,
+                      weight: FontWeight.w900,
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 25,),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 25,
+                      ),
                       child: Column(
                         children: [
-                          const KamarWidget(jenis: "VIP", nama: "ST. MARKUS", total: "3", sedia: "1"),
-                          Container(height: 0.5, color: cWhite,),
-                          const KamarWidget(jenis: "VVIP", nama: "ST. MARKUS", total: "1", sedia: "0"),
-                          Container(height: 0.5, color: cWhite,),
-                          const KamarWidget(jenis: "NICU", nama: "ST. MARKUS", total: "5", sedia: "5"),
-                          Container(height: 0.5, color: cWhite,),
-                          const KamarWidget(jenis: "KELAS III", nama: "ST. TERESIA", total: "4", sedia: "0"),
-                          Container(height: 0.5, color: cWhite,),
-                          const KamarWidget(jenis: "KELAS I", nama: "ST. MARIA", total: "3", sedia: "0"),
-                          Container(height: 0.5, color: cWhite,),
-                          const KamarWidget(jenis: "KELAS II", nama: "ST. TERESIA", total: "2", sedia: "0"),
-                          Container(height: 0.5, color: cWhite,),
-                          const KamarWidget(jenis: "KELAS II", nama: "ST. MATIUS", total: "6", sedia: "1"),
-                          Container(height: 0.5, color: cWhite,),
-                          const KamarWidget(jenis: "KELAS II", nama: "ST. FRANSISKUS", total: "3", sedia: "1"),
-                          Container(height: 0.5, color: cWhite,),
-                          const KamarWidget(jenis: "KELAS III", nama: "ST. EGIDIO", total: "6", sedia: "2"),
-                          Container(height: 0.5, color: cWhite,),
-                          const KamarWidget(jenis: "KELAS III", nama: "ST. KLARA", total: "4", sedia: "0"),
-                          Container(height: 0.5, color: cWhite,),
-                          const KamarWidget(jenis: "KELAS III", nama: "ST. YOSEF", total: "4", sedia: "0"),
-                          Container(height: 0.5, color: cWhite,),
-                          const KamarWidget(jenis: "KELAS I", nama: "ST. LUKAS", total: "2", sedia: "0"),
-                          Container(height: 0.5, color: cWhite,),
-                          const KamarWidget(jenis: "ISOLASI", nama: "ST. YOHANES", total: "4", sedia: "2"),
-                          Container(height: 0.5, color: cWhite,),
+                          const KamarWidget(
+                              jenis: "VIP",
+                              nama: "ST. MARKUS",
+                              total: "3",
+                              sedia: "1"),
+                          Container(
+                            height: 0.5,
+                            color: cWhite,
+                          ),
+                          const KamarWidget(
+                              jenis: "VVIP",
+                              nama: "ST. MARKUS",
+                              total: "1",
+                              sedia: "0"),
+                          Container(
+                            height: 0.5,
+                            color: cWhite,
+                          ),
+                          const KamarWidget(
+                              jenis: "NICU",
+                              nama: "ST. MARKUS",
+                              total: "5",
+                              sedia: "5"),
+                          Container(
+                            height: 0.5,
+                            color: cWhite,
+                          ),
+                          const KamarWidget(
+                              jenis: "KELAS III",
+                              nama: "ST. TERESIA",
+                              total: "4",
+                              sedia: "0"),
+                          Container(
+                            height: 0.5,
+                            color: cWhite,
+                          ),
+                          const KamarWidget(
+                              jenis: "KELAS I",
+                              nama: "ST. MARIA",
+                              total: "3",
+                              sedia: "0"),
+                          Container(
+                            height: 0.5,
+                            color: cWhite,
+                          ),
+                          const KamarWidget(
+                              jenis: "KELAS II",
+                              nama: "ST. TERESIA",
+                              total: "2",
+                              sedia: "0"),
+                          Container(
+                            height: 0.5,
+                            color: cWhite,
+                          ),
+                          const KamarWidget(
+                              jenis: "KELAS II",
+                              nama: "ST. MATIUS",
+                              total: "6",
+                              sedia: "1"),
+                          Container(
+                            height: 0.5,
+                            color: cWhite,
+                          ),
+                          const KamarWidget(
+                              jenis: "KELAS II",
+                              nama: "ST. FRANSISKUS",
+                              total: "3",
+                              sedia: "1"),
+                          Container(
+                            height: 0.5,
+                            color: cWhite,
+                          ),
+                          const KamarWidget(
+                              jenis: "KELAS III",
+                              nama: "ST. EGIDIO",
+                              total: "6",
+                              sedia: "2"),
+                          Container(
+                            height: 0.5,
+                            color: cWhite,
+                          ),
+                          const KamarWidget(
+                              jenis: "KELAS III",
+                              nama: "ST. KLARA",
+                              total: "4",
+                              sedia: "0"),
+                          Container(
+                            height: 0.5,
+                            color: cWhite,
+                          ),
+                          const KamarWidget(
+                              jenis: "KELAS III",
+                              nama: "ST. YOSEF",
+                              total: "4",
+                              sedia: "0"),
+                          Container(
+                            height: 0.5,
+                            color: cWhite,
+                          ),
+                          const KamarWidget(
+                              jenis: "KELAS I",
+                              nama: "ST. LUKAS",
+                              total: "2",
+                              sedia: "0"),
+                          Container(
+                            height: 0.5,
+                            color: cWhite,
+                          ),
+                          const KamarWidget(
+                              jenis: "ISOLASI",
+                              nama: "ST. YOHANES",
+                              total: "4",
+                              sedia: "2"),
+                          Container(
+                            height: 0.5,
+                            color: cWhite,
+                          ),
                         ],
                       ),
                     )
@@ -168,31 +265,61 @@ class KamarWidget extends StatelessWidget {
     return Container(
       height: 36,
       color: cBlue,
-      child:  Padding(
-        padding:  const EdgeInsets.all(8.0),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
         child: Row(
           children: [
             SizedBox(
               width: 110,
-              child: TextWidget(title: jenis, color: cWhite, size: 14, weight: FontWeight.bold,),),
-            Container(width: 1, color: cWhite,),
+              child: TextWidget(
+                title: jenis,
+                color: cWhite,
+                size: 14,
+                weight: FontWeight.bold,
+              ),
+            ),
+            Container(
+              width: 1,
+              color: cWhite,
+            ),
             SizedBox(
               width: 160,
-              child:  Padding(
+              child: Padding(
                 padding: const EdgeInsets.only(left: 20),
-                child: TextWidget(title: nama, color: cWhite, size: 14, weight: FontWeight.bold,),
-              ),),
-              const Spacer(),
-            Container(width: 1, color: cWhite,),
+                child: TextWidget(
+                  title: nama,
+                  color: cWhite,
+                  size: 14,
+                  weight: FontWeight.bold,
+                ),
+              ),
+            ),
+            const Spacer(),
+            Container(
+              width: 1,
+              color: cWhite,
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: TextWidget(title: total, color: cWhite, size: 14, weight: FontWeight.bold,),
+              child: TextWidget(
+                title: total,
+                color: cWhite,
+                size: 14,
+                weight: FontWeight.bold,
+              ),
             ),
-            
-            Container(width: 1, color: cWhite,),
+            Container(
+              width: 1,
+              color: cWhite,
+            ),
             Padding(
-              padding:  const EdgeInsets.symmetric(horizontal: 20),
-              child: TextWidget(title: sedia, color: cWhite, size: 14, weight: FontWeight.bold,),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: TextWidget(
+                title: sedia,
+                color: cWhite,
+                size: 14,
+                weight: FontWeight.bold,
+              ),
             ),
           ],
         ),

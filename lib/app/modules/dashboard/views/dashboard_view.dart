@@ -1,6 +1,11 @@
-import 'package:elis_web_antrean/app/data/constants/color.dart';
-import 'package:elis_web_antrean/app/data/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../../../data/constants/color.dart';
+import '../../../data/sections/footer_section.dart';
+import '../../../data/sections/header_section.dart';
+import '../../../data/widgets/list_menu_dashboard.dart';
+import '../../../data/widgets/text_widget.dart';
 
 class DashboardView extends StatelessWidget {
   const DashboardView({super.key});
@@ -10,85 +15,67 @@ class DashboardView extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          Column(
-            children: [
-              Container(
-                color: cWhite,
-                height: 60,
-                child: const Row(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 20,
-                      ),
-                      child: TextWidget(
-                        title: "Elism.",
-                        color: cMain,
-                        size: 18,
-                        weight: FontWeight.bold,
-                      ),
-                    ),
-                    Icon(
-                      Icons.menu,
-                    ),
-                    Spacer(),
-                    Icon(
-                      Icons.person,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                        right: 20,
-                        left: 10,
-                      ),
-                      child: TextWidget(
-                        title: "Admin Utama",
-                        color: cBlack,
-                        size: 12,
-                        weight: FontWeight.normal,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                height: 2,
-                color: cSecondary,
-              )
-            ],
-          ),
+          const HeaderWidget(),
           Expanded(
             child: Container(
               color: cWhite,
               child: Row(
                 children: [
-                  const SizedBox(
+                  SizedBox(
                     width: 160,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Padding(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: 20,
-                            vertical: 5,
-                          ),
-                          child: TextWidget(
-                            title: "Dashboard",
-                            color: cBlack,
-                            size: 14,
-                            weight: FontWeight.w900,
-                          ),
+                        const SizedBox(
+                          height: 10,
                         ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: 20,
-                            vertical: 5,
-                          ),
-                          child: TextWidget(
-                            title: "Antrean",
-                            color: cBlack,
-                            size: 14,
-                            weight: FontWeight.w900,
-                          ),
+                        ListMenuDashboard(
+                          title: "Dashboard",
+                          bColor: cMain,
+                          tColor: cWhite,
+                          press: () {},
+                        ),
+                        ListMenuDashboard(
+                          title: "Pasien",
+                          bColor: cWhite,
+                          tColor: cBlack,
+                          press: () {},
+                        ),
+                        ListMenuDashboard(
+                          title: "IGD",
+                          bColor: cWhite,
+                          tColor: cBlack,
+                          press: () {},
+                        ),
+                        ListMenuDashboard(
+                          title: "Poliklinik",
+                          bColor: cWhite,
+                          tColor: cBlack,
+                          press: () {},
+                        ),
+                        ListMenuDashboard(
+                          title: "Rawat Inap",
+                          bColor: cWhite,
+                          tColor: cBlack,
+                          press: () {},
+                        ),
+                        ListMenuDashboard(
+                          title: "Apotek",
+                          bColor: cWhite,
+                          tColor: cBlack,
+                          press: () {},
+                        ),
+                        ListMenuDashboard(
+                          title: "Laboratorium",
+                          bColor: cWhite,
+                          tColor: cBlack,
+                          press: () {},
+                        ),
+                        ListMenuDashboard(
+                          title: "Radiologi",
+                          bColor: cWhite,
+                          tColor: cBlack,
+                          press: () {},
                         ),
                       ],
                     ),
@@ -134,19 +121,7 @@ class DashboardView extends StatelessWidget {
               ),
             ),
           ),
-          Container(
-            width: MediaQuery.sizeOf(context).width,
-            height: 30,
-            color: cMain,
-            child: const Center(
-              child: TextWidget(
-                title: "Developed by Ramadhan Hadiatma @2025",
-                color: cWhite,
-                size: 12,
-                weight: FontWeight.bold,
-              ),
-            ),
-          ),
+          const FooterWidget(),
         ],
       ),
     );
