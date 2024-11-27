@@ -9,6 +9,7 @@ class TextWidget extends StatelessWidget {
     required this.size,
     required this.weight,
     this.style,
+    this.align,
   });
 
   final String title;
@@ -16,11 +17,13 @@ class TextWidget extends StatelessWidget {
   final double size;
   final FontWeight weight;
   final FontStyle? style;
+  final TextAlign? align;
 
   @override
   Widget build(BuildContext context) {
     return Text(
       title,
+      textAlign: align,
       style: GoogleFonts.lato(
         color: color,
         fontSize: size,
