@@ -1,4 +1,6 @@
+import 'package:elis_web_antrean/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../constants/color.dart';
 import '../widgets/text_widget.dart';
@@ -15,27 +17,35 @@ class HeaderWidget extends StatelessWidget {
         Container(
           color: cWhite,
           height: 60,
-          child: const Row(
+          child: Row(
             children: [
               Padding(
-                padding: EdgeInsets.symmetric(
+                padding: const EdgeInsets.symmetric(
                   horizontal: 20,
                 ),
-                child: TextWidget(
-                  title: "Elism.",
-                  color: cMain,
-                  size: 18,
-                  weight: FontWeight.bold,
+                child: InkWell(
+                  onTap: () => Get.toNamed(Routes.dashboard),
+                  child: const TextWidget(
+                    title: "Elism.",
+                    color: cMain,
+                    size: 18,
+                    weight: FontWeight.bold,
+                  ),
                 ),
               ),
-              Icon(
-                Icons.menu,
+              IconButton(
+                onPressed: () => Get.toNamed(
+                  Routes.main,
+                ),
+                icon: const Icon(
+                  Icons.menu_outlined,
+                ),
               ),
-              Spacer(),
-              Icon(
+              const Spacer(),
+              const Icon(
                 Icons.person,
               ),
-              Padding(
+              const Padding(
                 padding: EdgeInsets.only(
                   right: 20,
                   left: 10,

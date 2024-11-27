@@ -24,7 +24,8 @@ class FooterWidget extends StatelessWidget {
             children: [
               TextWidget(
                 title:
-                    "Rumah Sakit Umum Santa Elisabeth, ${DateFormat.yMd().format(DateTime.now())}, ${DateFormat.Hm().format(DateTime.now())}",
+                    /* "Rumah Sakit Umum Santa Elisabeth, ${DateFormat.yMd().format(DateTime.now())}, ${DateFormat.Hm().format(DateTime.now())}", */
+                    "Rumah Sakit Umum Santa Elisabeth Sambas, ${DateFormat.yMd().format(DateTime.now())}",
                 color: cWhite,
                 size: 12,
                 weight: FontWeight.bold,
